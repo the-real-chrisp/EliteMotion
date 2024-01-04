@@ -1,15 +1,18 @@
 [
     {
       "name": "Running",
-      "goal": "Run a half-marathon by end of year"
+      "time": 7,
+      "distance": 2
     },
     {
       "name": "Biking",
-      "goal": "Complete a 50-mile ride in under 5 hours within the next 10 weeks."
+      "time": 20,
+      "distance": 5
     },
     {
       "name": "Swimming",
-      "goal": "Swim 500 meters continuously using the front crawl stroke without stopping within the next 8 weeks."
+      "time": 5,
+      "distance": 100.5
     }
   ]
   
