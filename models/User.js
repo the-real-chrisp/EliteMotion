@@ -35,6 +35,9 @@ User.init(
         len: [8],
       },
     },
+    goal: {
+      type: DataTypes.STRING,
+    },
   },
   {
     hooks: {
