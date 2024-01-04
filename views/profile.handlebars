@@ -1,0 +1,47 @@
+<div class="profile-container">
+  <div class="card-header col-md-10">
+    <h2>
+      Profile
+    </h2>
+  </div>
+  {{#each workouts as |workouts|}}
+    <div class="dish col-md-5">
+      <p>
+        {{workout.id}}.
+        {{workout.name}}
+      </p>
+    </div>
+    <div class="col-md-7">
+      <p>
+        Goal description:
+        {{workout.goal}}
+      </p>
+    </div>
+  {{/each}}
+  <div class="add-workout-description-container">
+    <h2>
+      Input details of your workout
+    </h2>
+    <form class="new-workout-form">
+      <label for="workout_name">
+        Workout Name:
+      </label>
+      <br />
+      <textarea id="workout_name" name="workout_name" rows="2" cols="30">
+        {{name}}
+      </textarea>
+      <br />
+      <label for="description">
+        Description:
+      </label>
+      <br />
+      <textarea id="description" name="description" rows="5" cols="30">
+        {{description}}
+      </textarea>
+      <br />
+      <button type="submit" value="Submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
