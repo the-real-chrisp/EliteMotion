@@ -15,9 +15,6 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    goal: {
-      type: DataTypes.STRING,
-    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -29,6 +26,14 @@ Workout.init(
         model: 'user',
         key: 'id',
       },
+    },
+    time: { 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    distance: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
     },
   },
   {
