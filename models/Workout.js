@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Workout extends Model {}
+class Workout extends Model { }
 
 Workout.init(
   {
@@ -27,7 +27,7 @@ Workout.init(
         key: 'id',
       },
     },
-    time: { 
+    time: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

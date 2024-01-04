@@ -1,18 +1,21 @@
 [
     {
-      "name": "Sal",
-      "email": "sal@hotmail.com",
-      "password": "password12345"
+      "name": "Chris",
+      "email": "chris@hotmail.com",
+      "password": "password12345",
+      "goal": "Run a half-marathon by end of year"
     },
     {
-      "name": "Lernantino",
-      "email": "lernantino@gmail.com",
-      "password": "password12345"
+      "name": "Maritza",
+      "email": "maritza@gmail.com",
+      "password": "password12345",
+      "goal": "Complete a 50-mile ride in under 5 hours within the next 10 weeks."
     },
     {
-      "name": "Amiko",
-      "email": "amiko2k20@aol.com",
-      "password": "password12345"
+      "name": "Maryna",
+      "email": "maryna@aol.com",
+      "password": "password12345",
+      "goal": "Swim 500 meters continuously using the front crawl stroke without stopping within the next 8 weeks."
     }
   ]
   
