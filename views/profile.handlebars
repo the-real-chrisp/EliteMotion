@@ -1,10 +1,24 @@
 <div class="profile-container">
   <div class="card-header col-md-10">
-    <h2>
+    <h1>
       Profile
-    </h2>
+    </h1>
+    <h2>Let's go,{{name}}!</h2>
+    </div>
+    <div>
+   <h2>Goal</h2>
+<form class="goal-description-form">
+<label for="workout_name">
+        Input goal description:
+      </label>
+      <br>
+      <textarea >
+        {{goal}}
+      </textarea>
+</form>
+
   </div>
-  {{#each workouts as |workouts|}}
+  {{#each workouts as |workout|}}
     <div class="dish col-md-5">
       <p>
         {{workout.id}}.
@@ -16,6 +30,7 @@
         Goal description:
         {{workout.goal}}
       </p>
+      <textarea></textarea>
     </div>
   {{/each}}
   <div class="add-workout-description-container">
@@ -24,11 +39,11 @@
     </h2>
     <form class="new-workout-form">
       <label for="workout_name">
-        Workout Name:
+        Workout name:
       </label>
       <br />
       <textarea id="workout_name" name="workout_name" rows="2" cols="30">
-        {{name}}
+        {{workout.name}}
       </textarea>
       <br />
       <label for="description">
