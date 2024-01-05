@@ -15,3 +15,22 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+router.post('/login', async (req, res) => {
+    try {
+        const userValidEmail = await User.findOne({ where: { email: req.body.email } });
+
+        if(!userValidEmail) {
+            res.status(400).json({ message: 'Email or password invalid. Please try again.' })
+            return;
+        }
+
+        const userValidPassword = await userValidEmail.checkPassword(req.body.password);
+
+        if(!userValidPassword) {
+            res.status(400).json({ message: 'Email or password invalid. Please try again.'})
+        }
+    } catch {
+        res.status(400).json(err)
+    }
+})
