@@ -1,9 +1,23 @@
 const router = require('express').Router();
-const { Workouts } = require('../models');
+const { Workout, User } = require('../models');
 const auth = require('../utils/auth');
 
 router.get('/', auth, async (req, res) => {
     try {
+        const profileData = await User.findByPk({
+            where: {
+                user_id: req.session.user_id,
+            },
+            include: [
+                {
+                    model: 'user',
+                    attribute: ['name', 'goal']
+                }
+            ]
+        });
+
+        const profiles = profileData.map((profile) => profile.get({ plain: true }))
+
         const workoutData = await Workout.findAll({
             include: [
                 {
@@ -13,11 +27,12 @@ router.get('/', auth, async (req, res) => {
             ]
         });
 
-        const workouts = workoutData.map((workout) => project.get({ plain: true }));
+        const workouts = workoutData.map((workout) => workout.get({ plain: true }));
 
         res.render('profile', {
+            profiles,
             workouts,
-            logged_in: req.session.logged_in
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err);
