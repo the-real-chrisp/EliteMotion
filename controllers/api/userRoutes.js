@@ -30,8 +30,32 @@ router.post('/login', async (req, res) => {
         if(!userValidPassword) {
             res.status(400).json({ message: 'Email or password invalid. Please try again.'})
         }
-    } catch {
+    } catch (err) {
         res.status(400).json(err)
     }
 });
 
+router.post('/signup', async (req, res) => {
+    try {
+        const userAlreadyExists = await User.findOne({ where: { email: req.body.email } });
+
+        if(userAlreadyExists) {
+            res.status(400).json({ message: 'User already exists.' })
+            return;
+        }
+
+        // handle successful signup
+
+        const newUser = await User.create({
+            name: req.body.email,
+            email: req.body.email,
+            password: req.body.password
+        })
+        res.json(newUser)
+
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
+
+module.exports = router
