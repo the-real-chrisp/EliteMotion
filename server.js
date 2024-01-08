@@ -35,5 +35,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  const User = require('./models/User.js')
+
+
+  // User.describe().then(x => {
+  //   console.log(x)
+  // })
+
+  // User.findAll({}).then(users=>{
+  //   console.log(users)
+  // })
+
+  app.listen(PORT, () => console.log(`
+Now listening on port ${PORT}
+http://localhost:${PORT}/
+  `));
 });
