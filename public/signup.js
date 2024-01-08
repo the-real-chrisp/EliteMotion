@@ -21,7 +21,7 @@ const signupFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/');
-      } else if (password < 8) {
+      } else if (password.length < 8) {
         const err = await response.json()
         console.log(err)
         alert('Password must be minimum 8 characters');
