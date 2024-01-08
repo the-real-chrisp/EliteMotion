@@ -21,10 +21,12 @@ const signupFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/');
-      } else {
+      } else if (password < 8) {
         const err = await response.json()
         console.log(err)
-        alert('Failed to sign up');
+        alert('Password must be minimum 8 characters');
+      } else {
+        alert('Password must only use letters and/or numbers')
       }
     }
   };
