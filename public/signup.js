@@ -3,19 +3,20 @@ const signupFormHandler = async (event) => {
     event.preventDefault();
     // console.log('test')
     // return
-  
+
+    const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const password2 = document.querySelector('#password-signup-2').value.trim();
+    const goal = document.querySelector('#goal-signup').value.trim();
 
     if (
-        (email && password) &&
+        (name && email && password && goal) &&
         (password === password2)
         ) {
-      //making a request to backend, from line 13, using following methods
       const response = await fetch('/api/user/signup', {
         method: 'POST',
-        body: JSON.stringify({ email, password, password2 }),
+        body: JSON.stringify({ name, email, password, goal }),
         headers: { 'Content-Type': 'application/json' },
       });
   
