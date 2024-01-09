@@ -3,58 +3,87 @@
     <h1>
       Profile
     </h1>
-    <h2>Let's go,{{name}}!</h2>
-    </div>
-    <div>
-   <h2>Goal</h2>
-<form class="goal-description-form">
-<label for="workout_name">
+    <style>
+      .form-input {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+    <h2>Let's go, {{name}}!</h2>
+  </div>
+  <div>
+    <h2>Goal</h2>
+    <form class="goal-description-form">
+      {{!-- <label for="workout_name">
         Input goal description:
       </label>
       <br>
-      <textarea >
+      <textarea>
         {{goal}}
-      </textarea>
-</form>
+      </textarea> --}}
+      <textarea class="form-input" placeholder="Enter your fitness goal">{{goal}}</textarea>
+    </form>
 
   </div>
   {{#each workouts as |workout|}}
-    <div class="dish col-md-5">
-      <p>
-        {{workout.id}}.
-        {{workout.name}}
-      </p>
-    </div>
-    <div class="col-md-7">
-      <p>
-        Goal description:
-        {{workout.goal}}
-      </p>
-      <textarea></textarea>
-    </div>
+  <div class="dish col-md-5">
+    <p>
+      {{workout.id}}.
+      {{workout.name}}
+    </p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      Goal description:
+      {{workout.goal}}
+    </p>
+    {{!-- <textarea></textarea> --}}
+    <textarea class="form-input" placeholder="Enter your workout description"></textarea>
+  </div>
   {{/each}}
   <div class="add-workout-description-container">
     <h2>
       Input details of your workout
     </h2>
     <form class="new-workout-form">
-      <label for="workout_name">
+      {{!-- <label for="workout_name">
         Workout name:
       </label>
-      <br />
-      <textarea id="workout_name" name="workout_name" rows="2" cols="30">
-        {{workout.name}}
-      </textarea>
-      <br />
+      <br /> --}}
+      <textarea class="form-input" id="workout_name" name="workout_name" rows="2" cols="30" placeholder="Enter the name of your workout"></textarea>
+      {{!-- <br />
       <label for="description">
         Description:
       </label>
-      <br />
-      <textarea id="description" name="description" rows="5" cols="30">
+      <br /> --}}
+      <textarea class="form-input" id="description" name="description" rows="5" cols="30" placeholder="Enter your workout description">{{description}}</textarea>
+      {{!-- <textarea id="description" name="description" rows="5" cols="30" placeholder="Enter your workout description">
         {{description}}
       </textarea>
-      <br />
-      <button type="submit" value="Submit">
+      <br /> --}}
+      <button class="btn btn-primary" type="submit" value="Submit">
         Submit
       </button>
     </form>
