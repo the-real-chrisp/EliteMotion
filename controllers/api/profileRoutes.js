@@ -33,6 +33,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newWorkout = await Workout.create({
+            name: req.body.name,
             time: req.body.time,
             distance: req.body.distance,
         })
