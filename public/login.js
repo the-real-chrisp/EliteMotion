@@ -16,7 +16,8 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        // document.location.replace('/profile');
+        location.href = '/profile'
       } else {
         const err = await response.json()
         console.log(err)

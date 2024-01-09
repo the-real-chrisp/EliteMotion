@@ -34,17 +34,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+function list(path) {
+  const Model = require(path)
+  Model.findAll({}).then(items => {
+    console.log(`\n${path}\n`)
+    console.log(items.map(item => item.dataValues))
+  })
+}
+
 sequelize.sync({ force: false }).then(() => {
-  const User = require('./models/User.js')
-
-
   // User.describe().then(x => {
   //   console.log(x)
   // })
 
-  // User.findAll({}).then(users=>{
-  //   console.log(users)
-  // })
+  // node --watch server
+  list('./models/User')
+  list('./models/Workout')
 
   app.listen(PORT, () => function(err){
     if (err) {
