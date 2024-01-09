@@ -28,6 +28,18 @@ router.get('/', async (req, res) => {
     } catch {
         res.status(400).json(err)
     }
+});
+
+router.post('/', async (req, res) => {
+    try {
+        const newWorkout = await Workout.create({
+            time: req.body.time,
+            distance: req.body.distance,
+        })
+        res.status(200).json(newWorkout);
+    } catch {
+        res.status(400).json(err);
+    }
 })
 
 module.exports = router
