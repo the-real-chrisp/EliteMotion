@@ -4,43 +4,6 @@ const auth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     res.render('homepage')
-})
-
-router.get('/profile', auth, async (req, res) => {
-    try {
-        const profileData = await User.findByPk({
-            where: {
-                user_id: req.session.user_id,
-            },
-            include: [
-                {
-                    model: 'user',
-                    attribute: ['name', 'goal']
-                }
-            ]
-        });
-
-        const profiles = profileData.map((profile) => profile.get({ plain: true }))
-
-        const workoutData = await Workout.findAll({
-            include: [
-                {
-                    model: 'workout',
-                    attribute: ['time', 'distance', 'date_created']
-                }
-            ]
-        });
-
-        const workouts = workoutData.map((workout) => workout.get({ plain: true }));
-
-        res.render('profile', {
-            profiles,
-            workouts,
-            user_id: req.session.user_id
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
 });
 
 router.get('/login', (req, res) => {
@@ -59,6 +22,22 @@ router.get('/signup', (req, res) => {
     }
 
     res.render('signup')
+});
+
+router.get('/profile', async (req, res) => {
+    try {
+        const profileData = await User.findByPk(1);
+        const profiles = profileData.get({ plain: true })
+
+        const workoutData = await Workout.findAll();
+        console.log(workoutData)
+
+        const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+        console.log(workoutData)
+        res.render('profile');
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
