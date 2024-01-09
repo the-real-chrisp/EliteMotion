@@ -2,7 +2,11 @@ const router = require('express').Router();
 const { Workout, User } = require('../models');
 const auth = require('../utils/auth');
 
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
+    res.render('homepage')
+})
+
+router.get('/profile', auth, async (req, res) => {
     try {
         const profileData = await User.findByPk({
             where: {
