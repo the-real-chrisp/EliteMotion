@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
             },
             include: [
                 {
-                    model: 'user',
-                    attribute: ['name', 'goal']
+                    model: User,
+                    attributes: ['name', 'goal']
                 }
             ]
         });
@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
         const workoutData = await Workout.findAll({
             include: [
                 {
-                    model: 'workout',
-                    attribute: ['time', 'distance', 'date_created']
+                    model: Workout,
+                    attributes: ['time', 'distance', 'date_created']
                 }
             ]
         });
@@ -28,8 +28,7 @@ router.get('/', async (req, res) => {
     } catch {
         res.status(400).json(err)
     }
-<<<<<<< Updated upstream
-=======
+
 })
 
 function printRouteError(req,error) {
@@ -69,7 +68,21 @@ router.post('/goals', async (req, res) => {
     } catch (error) {
         printRouteError(req, error)
     }
->>>>>>> Stashed changes
+
+});
+
+router.post('/', async (req, res) => {
+    try {
+        const newWorkout = await Workout.create({
+            name: req.body.name,
+            time: req.body.time,
+            distance: req.body.distance,
+        })
+        res.status(200).json(newWorkout);
+    } catch {
+        res.status(400).json(err);
+    }
+
 })
 
 module.exports = router
