@@ -43,7 +43,12 @@
       <textarea>
         {{goal}}
       </textarea> --}}
-      <textarea class="form-input" placeholder="Enter your fitness goal">{{goal}}</textarea>
+        <textarea class="form-input" placeholder="Enter your fitness goal" name="goal">
+          {{goal}}
+        </textarea>
+        <button>
+          Update goal
+        </button>
     </form>
 
   </div>
@@ -69,20 +74,24 @@
         Workout name:
       </label>
       <br /> --}}
-      <textarea class="form-input" id="workout_name" name="workout_name" rows="2" cols="30" placeholder="Enter the name of your workout"></textarea>
+      <textarea class="form-input" id="workout_name" name="name" rows="2" cols="30" placeholder="Enter the name of your workout"></textarea>
+      <input class="form-input" id="workout_time" name="time" type="time" placeholder="Enter the time" />
+      <input class="form-input" id="workout_distance" name="distance" type="number" placeholder="Enter the distance" />
       {{!-- <br />
       <label for="description">
         Description:
       </label>
       <br /> --}}
-      <textarea class="form-input" id="description" name="description" rows="5" cols="30" placeholder="Enter your workout description">{{description}}</textarea>
+      {{!-- <textarea class="form-input" id="description" name="description" rows="5" cols="30" placeholder="Enter your workout description">{{description}}</textarea> --}}
       {{!-- <textarea id="description" name="description" rows="5" cols="30" placeholder="Enter your workout description">
         {{description}}
       </textarea>
       <br /> --}}
       <button class="btn btn-primary" type="submit" value="Submit">
-        Submit
+        Add workout
       </button>
     </form>
   </div>
 </div>
+
+<script src="/profile.js"></script>
