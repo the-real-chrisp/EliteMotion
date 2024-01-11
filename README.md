@@ -3,7 +3,7 @@
 
 ## Description
 
-EliteMotion user-friendly and efficient tool designed to help individuals achieve their fitness goals. With this app, users can easily track and log their exercises, allowing them to monitor their progress over time.
+EliteMotion is a user-friendly and efficient tool designed to help individuals achieve their fitness goals. With this app, users can easily track and log their exercises, allowing them to monitor their progress over time.
 
 ## User story
 
@@ -54,15 +54,14 @@ THEN I am logged out
 
 
 ## Installation
-N/A
+Click link under Usage to be directed to EliteMotion homepage.
 
 ## Features
-<!-- If your project has a lot of features, list them here. -->
+User can sign up for EliteMotion, create a profile, and input name, excercise,time, and goal to start their fitness journey.
 
 ## Usage
 
-<!-- still need deployment link and screenshot -->
-N/A
+<!-- still need deployment link and demo -->
 
 ## Contributors
 Github usernames: maritzadiaz77, the-real-chrisp, Marydesh
