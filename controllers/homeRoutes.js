@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Workout, User } = require('../models');
 const auth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     if (req.session.logged_in) {
         res.redirect('profile')
     }
