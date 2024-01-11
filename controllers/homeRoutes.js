@@ -3,10 +3,15 @@ const { Workout, User } = require('../models');
 const auth = require('../utils/auth');
 
 router.get('/', auth, async (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/profile')
+    try {
+        if (req.session.logged_in) {
+            res.redirect('/profile')
+            return
+        }
+        res.render('homepage')
+    } catch {
+        res.status(500).json(err);
     }
-    res.render('homepage')
 });
 
 router.get('/login', (req, res) => {
@@ -30,15 +35,15 @@ router.get('/signup', (req, res) => {
 router.get('/profile', async (req, res) => {
     try {
 
-//         const profileData = await User.findByPk(1);
-//         const profiles = profileData.get({ plain: true })
+        //         const profileData = await User.findByPk(1);
+        //         const profiles = profileData.get({ plain: true })
 
-//         const workoutData = await Workout.findAll();
-//         console.log(workoutData)
+        //         const workoutData = await Workout.findAll();
+        //         console.log(workoutData)
 
-//         const workouts = workoutData.map((workout) => workout.get({ plain: true }));
-//         console.log(workoutData)
-//         res.render('profile');
+        //         const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+        //         console.log(workoutData)
+        //         res.render('profile');
 
         const profileData = await User.findByPk(req.session.user_id, {
             include: [{
@@ -47,18 +52,18 @@ router.get('/profile', async (req, res) => {
             }]
         });
 
-//         // console.log("\nProfile data:", profileData, "\n")
-//         const profileWithWorkouts = profileData.get({ plain: true })
-//         // console.log("\nProfile with workouts:", profileWithWorkouts, "\n")
+        //         // console.log("\nProfile data:", profileData, "\n")
+        //         const profileWithWorkouts = profileData.get({ plain: true })
+        //         // console.log("\nProfile with workouts:", profileWithWorkouts, "\n")
 
-//         res.render('profile', profileWithWorkouts);
+        //         res.render('profile', profileWithWorkouts);
 
 
         const profileWithWorkouts = profileData.get({ plain: true })
         console.log(profileWithWorkouts)
 
         res.render('profile', profileWithWorkouts);
-      
+
     } catch (err) {
         res.status(500).json(err);
     }
