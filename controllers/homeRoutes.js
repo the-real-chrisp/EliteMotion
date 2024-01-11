@@ -58,7 +58,10 @@ router.get('/profile', auth, async (req, res) => {
         const profileWithWorkouts = profileData.get({ plain: true })
         console.log(profileWithWorkouts)
 
-        res.render('profile', profileWithWorkouts);
+        res.render('profile', {
+            profileWithWorkouts,
+            logged_in: req.session.logged_in,
+        });
 
     } catch (err) {
         res.status(500).json(err);
