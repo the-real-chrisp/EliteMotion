@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Workout, User } = require('../models');
 const auth = require('../utils/auth');
 
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         res.render('homepage')
     } catch {
@@ -28,7 +28,7 @@ router.get('/signup', (req, res) => {
     res.render('signup')
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', auth, async (req, res) => {
     try {
 
         //         const profileData = await User.findByPk(1);
