@@ -44,14 +44,20 @@ function list(path) {
   })
 }
 
-sequelize.sync({ force: false }).then(() => {
+/*
+  force: true
+    completely overwrites all tables
+  alter: true
+    only change tables where necessary
+*/
+sequelize.sync({ alter: true }).then(() => {
   // User.describe().then(x => {
   //   console.log(x)
   // })
 
   // node --watch server
-  list('./models/User')
-  list('./models/Workout')
+  // list('./models/User')
+  // list('./models/Workout')
 
   app.listen(PORT, () => function(err){
     if (err) {

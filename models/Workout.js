@@ -28,7 +28,7 @@ Workout.init(
       },
     },
     time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     distance: {

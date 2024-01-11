@@ -4,6 +4,10 @@ const auth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
+        if (req.session.logged_in) {
+            res.redirect('/profile')
+            return
+        }
         res.render('homepage')
     } catch {
         res.status(500).json(err);
@@ -47,5 +51,14 @@ router.get('/profile', auth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/signout', async (req, res) => {
+    req.session.destroy(function(err) {
+        if (err) {
+            console.log("Error destroying session: ", err)
+        }
+        res.redirect('/')
+    })
+})
 
 module.exports = router;

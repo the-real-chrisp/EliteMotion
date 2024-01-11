@@ -1,8 +1,3 @@
-<div class="profile-container">
-  <div class="card-header col-md-10">
-    <h1>
-      Profile
-    </h1>
     <style>
       .form-input {
         width: 100%;
@@ -47,7 +42,22 @@
       .btn-primary:hover {
         background-color: #0056b3;
       }
+      
+      .workout {
+        & p {
+          margin: 0;
+        }
+      }
+
+
     </style>
+
+<div class="profile-container">
+  <div class="card-header col-md-12">
+    <h1>
+      Profile
+    </h1>
+    <a href="/signout">Sign out</a>
     <h2>Let's go, {{name}}!</h2>
   </div>
   <div>
@@ -60,28 +70,28 @@
       <textarea>
         {{goal}}
       </textarea> --}}
-      <textarea class="form-input" placeholder="Enter your fitness goal" name="goal">
-          {{goal}}
-        </textarea>
+      <textarea class="form-input" placeholder="Enter your fitness goal" name="goal">{{goal}}</textarea>
       <button>
         Update goal
       </button>
     </form>
 
   </div>
-  {{#each workouts as |workout|}}
-  <div class="dish col-md-5">
-    <p>
-      Workout: {{workout.name}}
-    </p>
-    <p>
-      Workout Time: {{workout.time}}
-    </p>
-    <p>
-      Workout Distance: {{workout.distance}}
-    </p>
+  <div class="row gy-2">
+    {{#each workouts as |workout|}}
+    <div class="dish col-md-4 card workout">
+      <p>
+        Workout: {{workout.name}}
+      </p>
+      <p>
+        Workout Time: {{workout.time}}
+      </p>
+      <p>
+        Workout Distance: {{workout.distance}}
+      </p>
+    </div>
+    {{/each}}
   </div>
-  {{/each}}
   <div class="add-workout-description-container">
     <h2>
       Input details of your workout
