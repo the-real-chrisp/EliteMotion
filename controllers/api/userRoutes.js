@@ -52,6 +52,16 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+
 router.post('/signup', async (req, res) => {
     try {
         const userAlreadyExists = await User.findOne({ where: { email: req.body.email } });
@@ -62,7 +72,7 @@ router.post('/signup', async (req, res) => {
         }
 
         const newUser = await User.create({
-            name: req.body.email,
+            name: req.body.name,
             email: req.body.email,
             password: req.body.password
         });
