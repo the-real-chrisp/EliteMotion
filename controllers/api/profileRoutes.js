@@ -43,7 +43,7 @@ router.post('/workouts', async (req, res) => {
         await Workout.create({
             name: req.body.name,
             distance: parseFloat(req.body.distance),
-            time: 5,
+            time: req.body.time,
             user_id: req.session.user_id
         })
 
