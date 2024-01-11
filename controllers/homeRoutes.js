@@ -4,14 +4,14 @@ const auth = require('../utils/auth');
 
 router.get('/', auth, async (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('profile')
+        res.redirect('/profile')
     }
     res.render('homepage')
 });
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('profile');
+        res.redirect('/profile');
         return
     }
 
@@ -20,7 +20,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('profile');
+        res.redirect('/profile');
         return
     }
 
