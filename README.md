@@ -60,8 +60,14 @@ Click link under Usage to be directed to EliteMotion homepage.
 User can sign up for EliteMotion, create a profile, and input name, excercise,time, and goal to start their fitness journey.
 
 ## Usage
+Deployed application:
+https://elite-motion-5b0d7b0f3200.herokuapp.com/ 
 
-<!-- still need deployment link and demo -->
+Github repo:
+https://github.com/the-real-chrisp/EliteMotion
+
+Screenshot:
+![EliteMotionHomepageScreenshot](<public/images/EliteMotion - Google Chrome 1_11_2024 7_07_57 PM.png>)
 
 ## Contributors
 Github usernames: maritzadiaz77, the-real-chrisp, Marydesh
